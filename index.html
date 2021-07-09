@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <form action="">
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>
+            <input type="number" name="Amount" id="amount">
+        </td>
+        <td>
+            <select name="Tien" id="From Currency">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+        <td>
+            <select name="Tien" id="To Currency">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+            </select>
+        </td>
+        <td>
+            <input type="submit" value="Convert" onclick="Result()" id="trade">
+        </td>
+    </tr>
+    </form>
+</table>
+<div>
+    <h3 id="result">Result: </h3>
+</div>
+<script>
+    function Result(){
+        let amount = document.getElementById("amount").value;
+        let From= document.getElementById("From Currency").value;
+        let To = document.getElementById("To Currency").value;
+        let convert;
+        if (From == "VND" && To == "USD")
+            convert = amount / 23000
+        else if (From == "USD" && To == "VND")
+            convert = amount * 23000
+        else convert = amount
+        document.getElementById("result").innerHTML = "Result: " + convert;
+    }
+</script>
+</body>
+</html>
